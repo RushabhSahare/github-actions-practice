@@ -1,0 +1,28 @@
+#GOAL: Matrix strategy to run the same job across pythin version 3.10, 3.11,3.12
+
+name: Matrix build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  Matrix Build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+      
+      - name: Print Python version
+        run: python --version
+
+#This will give you 3 parallel jobs, one per python version.
+
