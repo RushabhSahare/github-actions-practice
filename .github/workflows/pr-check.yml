@@ -1,0 +1,18 @@
+#GOAL: Trigger on pull request
+
+name: Trigger on Pull request
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+jobs:
+  pr-check: #job name, just like greet.
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Print branch info
+        run: echo "PR check running for branch: ${{ github.head_ref }}"
