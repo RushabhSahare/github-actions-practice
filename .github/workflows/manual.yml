@@ -11,7 +11,7 @@ on:
         type: string
 
 jobs:
-  manual-run
+  manual-run:
     runs-on: ubuntu-latest
     steps:
       - name: Print input
