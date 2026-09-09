@@ -13,13 +13,13 @@ jobs:
         run: echo "Hello from GitHub Actions"
 
       - name: Date and time
-        uses: date
-      
+        run: date
+
       - name: Name of branch
-        uses: echo "Name of this branch is ${{ github.ref_name }}"
+        run: echo "Name of this branch is ${{ github.ref_name }}"
+
+      - name: List files in repo
+        run: ls -la
 
       - name: Runner's OS
-        uses: cat /etc/os-release
-      
-      - name: Runner's OS 2
-        uses: echo "OS of runner is ${{ runner.os }}""
+        run: echo "OS of runner is ${{ runner.os }}"
