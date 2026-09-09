@@ -1,6 +1,4 @@
-#GOAL: MANUAL TRIGGER
-
-name: Manual trigger using workflow_dispatch
+name: Manual Deploy
 
 on:
   workflow_dispatch:
