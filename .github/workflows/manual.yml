@@ -1,0 +1,18 @@
+#GOAL: MANUAL TRIGGER
+
+name: Manual trigger using workflow_dispatch
+
+on:
+  workflow_dispatch
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        type: string
+
+jobs:
+  manual-run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print input
+        run: echo "Deploying to environment: ${{ github.event.inputs.environment}}"
