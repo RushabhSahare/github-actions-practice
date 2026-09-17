@@ -1,0 +1,37 @@
+name: Hosted Runners Comparison
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ubuntu-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print OS info
+        run: 'echo "OS: ubuntu-latest"'
+      - name: Print hostname
+        run: hostname
+      - name: Print current user
+        run: whoami
+
+  windows-job:
+    runs-on: windows-latest
+    steps:
+      - name: Print OS info
+        run: 'echo "OS: windows-latest"'
+      - name: Print hostname
+        run: hostname
+      - name: Print current user
+        run: whoami
+
+  macos-job:
+    runs-on: macos-latest
+    steps:
+      - name: Print OS info
+        run: 'echo "OS: macos-latest"'
+      - name: Print hostname
+        run: hostname
+      - name: Print current user
+        run: whoami
