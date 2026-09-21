@@ -23,6 +23,7 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
+        if: github.ref == 'refs/heads/main'
         with:
           context: ./day36-flask-todo
           push: true
