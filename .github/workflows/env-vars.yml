@@ -1,0 +1,23 @@
+name: Environment Variables Demo
+
+env:
+  APP_NAME: myapp
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  show-env:
+    runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: staging
+    steps:
+      - name: Print all env vars
+        env:
+          VERSION: 1.0.0
+        run: 'echo "App: $APP_NAME, Environment: $ENVIRONMENT, Version: $VERSION"'
+
+      - name: Print GitHub context variables
+        run: 'echo "Commit SHA: ${{ github.sha }}, Actor: ${{ github.actor }}"'
